@@ -7,7 +7,7 @@ Standard library only.
 import os
 
 SENTENCE = (
-    "My shadow reaches the crosswalk half a step before I do, "
+    "My shadow beats me to the crosswalk by half a step, "
     "already impatient to cross a street I haven't arrived at yet."
 )
 
@@ -21,6 +21,8 @@ def main() -> None:
         )
     if SENTENCE.strip() == "":
         raise ValueError("sentence must not be only whitespace")
+    if "\n" in SENTENCE or "\r" in SENTENCE:
+        raise ValueError("entry must be a single line")
     if SENTENCE.count(".") != 1 or not SENTENCE.endswith("."):
         raise ValueError("entry must be exactly one sentence")
 
